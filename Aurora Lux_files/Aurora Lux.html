@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0120)http://localhost:63342/CodingForWeb/WorkYuan/Work/JieMian.html?_ijt=srfr7096v9ha4ahnj2cgc520uj&_ij_reload=RELOAD_ON_SAVE -->
+<html lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Aurora Lux</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* 统一字体和颜色 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      color: #666;
+    }
+
+    /* 顶部导航栏 */
+    header {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #f00;
+      text-decoration: underline;
+    }
+
+    /* 产品展示区域 */
+    #product-display {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+
+    #product-display::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-card {
+      background-color: #eee;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      flex-basis: 300px;
+      flex-shrink: 0;
+      margin-right: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .product-card:last-of-type {
+      margin-right: 0;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transform: scale(1.05);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .product-card h3, .product-card p {
+      margin: 10px;
+    }
+
+    /* 底部区域 */
+    footer {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Aurora Lux</h1>
+  <nav>
+    <a href="http://localhost:63342/CodingForWeb/WorkYuan/Work/JieMian.html?_ijt=srfr7096v9ha4ahnj2cgc520uj&amp;_ij_reload=RELOAD_ON_SAVE#">商店</a>
+    <a href="http://localhost:63342/CodingForWeb/WorkYuan/Work/JieMian.html?_ijt=srfr7096v9ha4ahnj2cgc520uj&amp;_ij_reload=RELOAD_ON_SAVE#">产品</a>
+    <a href="http://localhost:63342/CodingForWeb/WorkYuan/Work/JieMian.html?_ijt=srfr7096v9ha4ahnj2cgc520uj&amp;_ij_reload=RELOAD_ON_SAVE#">周边</a>
+    <a href="http://localhost:63342/CodingForWeb/WorkYuan/Work/JieMian.html?_ijt=srfr7096v9ha4ahnj2cgc520uj&amp;_ij_reload=RELOAD_ON_SAVE#">新闻</a>
+  </nav>
+</header>
+
+<div id="product-display">
+  <div class="product-card">
+    <img src="./Aurora Lux_files/product1.jpg" alt="风景">
+    <h3>晨曦初升，霞光万道，熠熠生辉</h3>
+    <p>远山如黛，近水似银，春色满园香气浓。</p>
+  </div>
+
+  <div class="product-card">
+    <img src="./Aurora Lux_files/product2.jpg" alt="爱情">
+    <h3>远眺海天一色，浪漫而悠久</h3>
+    <p>你是我心中永不磨灭的情愫，深深地扎根在我的心灵深处。</p>
+  </div>
+
+  <div class="product-card">
+    <img src="./Aurora Lux_files/product3.jpg" alt="思想">
+    <h3>理性的庭院，思想的花园</h3>
+    <p>时光如梭，岁月如梦，思想却永不停息。</p>
+  </div>
+
+  <div class="product-card">
+    <img src="./Aurora Lux_files/product4.jpg" alt="生活">
+    <h3>品味人生，享受美好</h3>
+    <p>生活如茶，苦涩与甜蜜交织，尝遍所有滋味才能领悟其真谛。</p>
+  </div>
+</div>
+
+<footer>
+  © My Online Store 2023
+  <p>
+     ©© 2023（www.AuroraLux.com）保留所有权利。未经授权禁止转载、复制或镜像。
+  </p>
+</footer>
+
+
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host + 
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash 
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script></body></html>
